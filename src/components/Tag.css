@@ -5,4 +5,10 @@
     padding: 10px;
     margin-right: 10px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.tag:hover {
+    background: hsl(180, 29%, 50%);
+    color: #FFF;
 }

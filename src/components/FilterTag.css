@@ -1,0 +1,31 @@
+.filterTag {
+    display: flex;
+    cursor: default;
+    margin-right: 15px;
+}
+
+.filterTagName {
+    background: hsl(180, 52%, 96%);
+    color: hsl(180, 29%, 50%);
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.iconRemove {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: hsl(180, 29%, 50%);
+    border-radius: 0 5px 5px 0;
+    padding: 0 10px;
+}
+
+.iconRemove:hover {
+    background-color: hsl(180, 14%, 20%);
+    cursor: pointer;
+}
+
+.iconRemove img {
+    width: 20px;
+}

@@ -1,0 +1,34 @@
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* bottom: -50px; mudar para -50px */
+    bottom: 0;
+    width: 90%;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px -2px hsl(180, 29%, 50%);
+    padding: 0 50px;
+}
+
+.filter.invisible {
+    display: none;
+}
+
+.clearFilter {
+    background-color: transparent;
+    color: rgb(91, 164, 164);
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+.clearFilter:hover {
+    text-decoration: underline;
+}

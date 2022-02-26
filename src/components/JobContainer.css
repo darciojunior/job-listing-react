@@ -74,7 +74,6 @@
 .tags {
     grid-area: tags;
     display: flex;
-    justify-content: end;
-    float: right;
+    justify-content: flex-end;
 }
 

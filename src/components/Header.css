@@ -2,6 +2,7 @@
     width: 100%;
     height: 200px;
     background-color: rgb(91, 164, 164);
+    position: relative;
 }
 
 .headerBG {

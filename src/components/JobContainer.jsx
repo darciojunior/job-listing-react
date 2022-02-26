@@ -4,7 +4,8 @@ import JobInfo from './JobInfo'
 import Tag from './Tag'
 
 export default function JobContainer(props) {
-    let data = props.data
+    const data = props.data
+    const setFilter = {tagsList: props.filterUseState.filterTags, setFilterTags: props.filterUseState.setFilterTags}
 
     function isNew() {
         if (data.new) return <p>NEW!</p>
@@ -15,13 +16,12 @@ export default function JobContainer(props) {
     }
 
     function loadLanguagesTags() {
-        if (data.languages.length > 0) return data.languages.map((language, index) => <Tag key={index} data={language} />)
+        if (data.languages.length > 0) return data.languages.map((language, index) => <Tag key={index} data={language} filterUseState={setFilter} />)
     }
 
     function loadToolsTags() {
-        if (data.tools.length > 0) return data.tools.map((tool, index) => <Tag key={index} data={tool} />)
+        if (data.tools.length > 0) return data.tools.map((tool, index) => <Tag key={index} data={tool} filterUseState={setFilter} />)
     }
-
 
     return <div className='jobContainer'>
         <img src={logoImg} alt="" className='logo' />
@@ -41,8 +41,8 @@ export default function JobContainer(props) {
             </div>
         </div>
         <div className="tags">
-            <Tag data={data.role} />
-            <Tag data={data.level} />
+            <Tag data={data.role} filterUseState={setFilter} />
+            <Tag data={data.level} filterUseState={setFilter} />
             {loadLanguagesTags()}
             {loadToolsTags()}
         </div>
