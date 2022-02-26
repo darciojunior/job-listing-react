@@ -71,11 +71,6 @@
     align-items: center;
 }
 
-.job-info {
-    color: hsl(180, 8%, 52%);
-    font-size: 14px;
-}
-
 .tags {
     grid-area: tags;
     display: flex;
@@ -83,11 +78,3 @@
     float: right;
 }
 
-.tag {
-    background: hsl(180, 52%, 96%);
-    color: hsl(180, 29%, 50%);
-    font-weight: bold;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-}

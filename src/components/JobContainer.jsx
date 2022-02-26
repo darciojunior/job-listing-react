@@ -1,5 +1,7 @@
 import './JobContainer.css'
 import logoImg from '../images/photosnap.svg'
+import JobInfo from './JobInfo'
+import Tag from './Tag'
 
 export default function JobContainer(props) {
     let data = props.data
@@ -13,11 +15,11 @@ export default function JobContainer(props) {
     }
 
     function loadLanguagesTags() {
-        if (data.languages.length > 0) return data.languages.map((language, index) => <div key={index} className='tag'>{language}</div>)
+        if (data.languages.length > 0) return data.languages.map((language, index) => <Tag key={index} data={language} />)
     }
 
     function loadToolsTags() {
-        if (data.tools.length > 0) return data.tools.map((tool, index) => <div key={index} className='tag'>{tool}</div>)
+        if (data.tools.length > 0) return data.tools.map((tool, index) => <Tag key={index} data={tool} />)
     }
 
 
@@ -31,16 +33,16 @@ export default function JobContainer(props) {
             </div>
             <div className='position'>{data.position}</div>
             <div className="job-info-area">
-                <div className='job-info'>{data.postedAt}</div>
-                <div className="job-info"><strong>·</strong></div>
-                <div className='job-info'>{data.contract}</div>
-                <div className="job-info"><strong>·</strong></div>
-                <div className='job-info'>{data.location}</div>
+                <JobInfo data={data.postedAt} />
+                <JobInfo data='·' strong={true} />
+                <JobInfo data={data.contract} />
+                <JobInfo data='·' strong={true} />
+                <JobInfo data={data.location} />
             </div>
         </div>
         <div className="tags">
-            <div className='tag'>{data.role}</div>
-            <div className='tag'>{data.level}</div>
+            <Tag data={data.role} />
+            <Tag data={data.level} />
             {loadLanguagesTags()}
             {loadToolsTags()}
         </div>
