@@ -4,9 +4,8 @@
     justify-content: space-between;
     position: absolute;
     left: 50%;
+    bottom: -50px;
     transform: translateX(-50%);
-    /* bottom: -50px; mudar para -50px */
-    bottom: 0;
     width: 90%;
     height: 100px;
     background-color: #fff;

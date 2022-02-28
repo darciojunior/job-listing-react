@@ -10,18 +10,20 @@ function App() {
   function renderJobContainers() {
     if (filterTags.length === 0) return data.map(data => <JobContainer data={data} key={data.id} filterUseState={{ filterTags, setFilterTags }} />)
     else {
-      const filteredArr = data.filter(data => filterTags.includes(data.level) || filterTags.includes(data.role) || filterTags.includes(data.tools))
-      console.log(filteredArr)
-      return filteredArr.map(data => <JobContainer data={data} key={data.id} filterUseState={{ filterTags, setFilterTags }} />)
+      const filteredJobs = data.filter(function (data) {
+        const concatTags = [data.level, data.role, ...data.languages, ...data.tools]
+        return filterTags.every(value => concatTags.includes(value))
+      })
+      return filteredJobs.map(data => <JobContainer data={data} key={data.id} filterUseState={{ filterTags, setFilterTags }} />)
     }
   }
-
-  // Ver como fazer pra filtrar as tools já que estão em outro array
 
   return (
     <div className="App">
       <Header filterUseState={{ filterTags, setFilterTags }} />
-      {renderJobContainers()}
+      <div style={filterTags.length > 0 ? { marginTop: 80 } : { marginTop: 0 }} >
+        {renderJobContainers()}
+      </div>
     </div>
   );
 }

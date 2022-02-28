@@ -9,7 +9,7 @@ export default function Filter(props) {
         props.filterUseState.setFilterTags([])
     }
 
-    return <div className={`filter ${props.filterUseState.tagsList.length === 0 ? "invisible" : ""}`}>
+    return <div className={`filter${props.filterUseState.tagsList.length === 0 ? " invisible" : ""}`}>
         <div className="tags">
             {props.filterUseState.tagsList.map((tagName, index) => <FilterTag key={index} data={tagName} filterUseState={setFilter} />)}
         </div>
