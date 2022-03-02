@@ -1,9 +1,14 @@
 import './FilterTag.css'
 import iconRemove from '../images/icon-remove.svg'
+import { useContext } from 'react'
+import { FiltersContext } from '../App'
 
 export default function FilterTag(props) {
+
+    const useFilterContext = useContext(FiltersContext)
+
     function removeTagFromFilter() {
-        props.filterUseState.setFilterTags(props.filterUseState.tagsList.filter(tag => tag !== props.data))
+        useFilterContext.setFilterTags(useFilterContext.filterTags.filter(tag => tag !== props.data))
     }
 
     return <div className="filterTag">

@@ -1,17 +1,19 @@
+import { useContext } from 'react'
+import { FiltersContext } from '../App'
 import './Filter.css'
 import FilterTag from './FilterTag'
 
 export default function Filter(props) {
 
-    const setFilter = { tagsList: props.filterUseState.tagsList, setFilterTags: props.filterUseState.setFilterTags }
+    const useFilterContext = useContext(FiltersContext)
 
     function clearFilter() {
-        props.filterUseState.setFilterTags([])
+        useFilterContext.setFilterTags([])
     }
 
-    return <div className={`filter${props.filterUseState.tagsList.length === 0 ? " invisible" : ""}`}>
+    return <div className={`filter${useFilterContext.filterTags.length === 0 ? " invisible" : ""}`}>
         <div className="tags">
-            {props.filterUseState.tagsList.map((tagName, index) => <FilterTag key={index} data={tagName} filterUseState={setFilter} />)}
+            {useFilterContext.filterTags.map((tagName, index) => <FilterTag key={index} data={tagName} />)}
         </div>
         <button className="clearFilter" onClick={clearFilter}>
             Clear
