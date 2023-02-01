@@ -1,18 +1,9 @@
 import './JobContainer.css'
-import logoImg from '../images/photosnap.svg'
 import JobInfo from './JobInfo'
 import Tag from './Tag'
 
 export default function JobContainer(props) {
     const data = props.data
-
-    function isNew() {
-        if (data.new) return <p>NEW!</p>
-    }
-
-    function isFeatured() {
-        if (data.featured) return <p>FEATURED</p>
-    }
 
     function loadLanguagesTags() {
         if (data.languages.length > 0) return data.languages.map((language, index) => <Tag key={index} data={language} />)
@@ -23,19 +14,19 @@ export default function JobContainer(props) {
     }
 
     return <div className='jobContainer'>
-        <img src={logoImg} alt="" className='logo' />
+        <img src={data.logo} alt="" className='logo' />
         <div className="job-description-area">
             <div className="company-name-area">
                 <div className='companyName'>{data.company}</div>
-                <div className="newTag">{isNew()}</div>
-                <div className="featuredTag">{isFeatured()}</div>
+                <div className="newTag">{data.new && <p>NEW!</p>}</div>
+                <div className="featuredTag">{data.featured && <p>FEATURED</p>}</div>
             </div>
             <div className='position'>{data.position}</div>
             <div className="job-info-area">
                 <JobInfo data={data.postedAt} />
-                <JobInfo data='·' strong={true} />
+                <JobInfo data='·' strong />
                 <JobInfo data={data.contract} />
-                <JobInfo data='·' strong={true} />
+                <JobInfo data='·' strong />
                 <JobInfo data={data.location} />
             </div>
         </div>
